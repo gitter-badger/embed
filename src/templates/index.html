@@ -1,0 +1,30 @@
+<% for (group in groups) { %>
+  <div class="mashape-group">
+    <div class="mashape-group-header"><%= group %></div>
+    <% for (var i = 0; i < groups[group].length; i++) { %>
+      <div class="mashape-endpoint">
+        <span class="mashape-endpoint-name"><%= groups[group][i].name %></span>
+        <span class="mashape-endpoint-method mashape-<%= groups[group][i].method.toLowerCase() %>"><%= groups[group][i].method %></span>
+        <p><%= groups[group][i].description %></p>
+        <div class="mashape-endpoint-content">
+          <span class="mashape-endpoint-route"><span><%= groups[group][i].method %></span> <%= groups[group][i].route %></span>
+          <% if (groups[group][i].parameters.data.length) { %>
+            <div class="mashape-parameter-header">Parameters</div>
+            <% for (var k = 0; k < groups[group][i].parameters.data.length; k++) { %>
+              <div class="mashape-parameter">
+                <span class="mashape-parameter-name"><%= groups[group][i].parameters.data[k].name %></span>
+                <span class="mashape-parameter-type"><%= groups[group][i].parameters.data[k].type %></span>
+                <span class="mashape-parameter-condition-<%= groups[group][i].parameters.data[k].condition.toLowerCase() %>"><%= groups[group][i].parameters.data[k].condition %></span>
+                <span class="mashape-parameter-description"><%= groups[group][i].parameters.data[k].description || "no description" %></span>
+              </div>
+            <% } %>
+          <% } %>
+          <% if (groups[group][i].response && groups[group][i].response.body) { %>
+            <div class="mashape-response-header">Response Example</div>
+            <span class="mashape-example"><%= groups[group][i].response.body %></span>
+          <% } %>
+        </div>
+      </div>
+    <% } %>
+  </div>
+<% } %>

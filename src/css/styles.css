@@ -1,0 +1,193 @@
+.mashape-clearfix:before,
+.mashape-clearfix:after {
+    content: "";
+    display: table;
+}
+
+.mashape-clearfix:after {
+    clear: both;
+}
+
+.mashape-doc {
+    display: block !important;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.8);
+    line-height: 20px;
+}
+
+.mashape-doc * {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+.mashape-doc .mashape-group {
+    margin-top: 40px;
+}
+
+.mashape-doc .mashape-group:first-of-type {
+    margin-top: 0;
+}
+
+.mashape-doc .mashape-group-header {
+    font-size: 1.6em;
+    font-weight: bold;
+    line-height: 1.3em;
+    margin-bottom: 7px;
+    padding: 0 10px;
+}
+
+.mashape-doc .mashape-endpoint {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    border-top: 1px rgba(0, 0, 0, 0.12) solid;
+    padding: 7px 10px;
+}
+
+.mashape-doc .mashape-endpoint:hover {
+    background: rgba(0, 0, 0, 0.04);
+    cursor: pointer;
+}
+
+.mashape-doc .mashape-endpoint:last-of-type {
+    border-bottom: 1px rgba(0, 0, 0, 0.12) solid;
+}
+
+.mashape-doc .mashape-endpoint.mashape-selected {
+    background: none;
+}
+
+.mashape-doc .mashape-endpoint.mashape-selected:hover {
+    background: none;
+    cursor: auto;
+}
+
+.mashape-doc .mashape-endpoint.mashape-authentication:hover {
+    background: none;
+    cursor: auto;
+}
+
+.mashape-doc .mashape-endpoint.mashape-authentication .mashape-parameter-description:before {
+    content: "";
+}
+
+.mashape-doc .mashape-endpoint .mashape-endpoint-name {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.mashape-doc .mashape-endpoint .mashape-endpoint-method {
+    font-family: monospace;
+    text-transform: uppercase;
+    float: right;
+}
+
+.mashape-doc .mashape-endpoint .mashape-endpoint-method.mashape-get {
+    color: #66A4D1;
+}
+
+.mashape-doc .mashape-endpoint .mashape-endpoint-method.mashape-post {
+    color: #8CB562;
+}
+
+.mashape-doc .mashape-endpoint .mashape-endpoint-method.mashape-put {
+    color: #993366;
+}
+
+.mashape-doc .mashape-endpoint .mashape-endpoint-method.mashape-delete {
+    color: #CB3234;
+}
+
+.mashape-doc .mashape-endpoint .mashape-endpoint-route,
+.mashape-doc .mashape-endpoint .mashape-example {
+    display: block;
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px rgba(0, 0, 0, 0.12) solid;
+    border-radius: 3px;
+    font-family: monospace;
+    padding: 5px 9px;
+    margin-top: 1em;
+    overflow: auto;
+}
+
+.mashape-doc .mashape-endpoint .mashape-endpoint-route span,
+.mashape-doc .mashape-endpoint .mashape-example span {
+    text-transform: uppercase;
+}
+
+.mashape-doc .mashape-endpoint .mashape-example {
+    background: none;
+    margin-bottom: 1.5em;
+    white-space: pre;
+    max-height: 26em;
+}
+
+.mashape-doc .mashape-endpoint .mashape-parameter-header,
+.mashape-doc .mashape-endpoint .mashape-response-header {
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+.mashape-doc .mashape-endpoint .mashape-response-header {
+    margin: 1.5em 0 -0.5em;
+}
+
+.mashape-doc .mashape-endpoint .mashape-parameter {
+    margin: 6px 0 14px;
+    padding-left: 20px;
+}
+
+.mashape-doc .mashape-endpoint .mashape-parameter:before,
+.mashape-doc .mashape-endpoint .mashape-parameter:after {
+    content: "";
+    display: table;
+}
+
+.mashape-doc .mashape-endpoint .mashape-parameter:after {
+    clear: both;
+}
+
+.mashape-doc .mashape-endpoint .mashape-parameter div:nth-child(1) {
+    float: left;
+    width: 20%;
+    position: relative;
+    z-index: 100;
+}
+
+.mashape-doc .mashape-endpoint .mashape-parameter div:nth-child(2) {
+    float: right;
+    width: 80%;
+}
+
+.mashape-doc .mashape-endpoint .mashape-parameter-name {
+    display: block;
+    margin-left: -10px;
+    opacity: 0.5;
+    font-weight: bold;
+}
+
+.mashape-doc .mashape-endpoint .mashape-parameter-type,
+.mashape-doc .mashape-endpoint .mashape-parameter-constant {
+    text-transform: capitalize;
+}
+
+.mashape-doc .mashape-endpoint .mashape-parameter-optional:before {
+    content: ", ";
+}
+
+.mashape-doc .mashape-endpoint .mashape-parameter-description:before {
+    content: ": ";
+}
+
+.mashape-doc .mashape-endpoint .mashape-parameter-example {
+    display: block;
+}
+
+.mashape-doc .mashape-endpoint .mashape-endpoint-content {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    overflow: hidden;
+}
