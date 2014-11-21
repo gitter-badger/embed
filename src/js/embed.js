@@ -46,6 +46,7 @@
       _this.container.innerHTML = _this.tmpl(_this.options.template, {
         groups: _this.groupEndpoints(data.endpoints.data)
       });
+      _this.attachEvents();
     });
   }
 
@@ -67,6 +68,20 @@
     element.appendChild(container);
 
     return container;
+  };
+
+  /**
+   * Attach events to DOM nodes
+   */
+
+  Doc.prototype.attachEvents = function () {
+    var endpoints = this.container.querySelectorAll('.mashape-endpoint');
+
+    [].forEach.call(endpoints, function (el) {
+      el.addEventListener('click', function() {
+        el.classList.toggle('active');
+      }, false);
+    });
   };
 
   /**

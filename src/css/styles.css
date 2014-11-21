@@ -121,7 +121,7 @@
     background: none;
     margin-bottom: 1.5em;
     white-space: pre;
-    max-height: 26em;
+    max-height: 340px;
 }
 
 .mashape-doc .mashape-endpoint .mashape-parameter-header,
@@ -186,8 +186,13 @@
 }
 
 .mashape-doc .mashape-endpoint .mashape-endpoint-content {
+    max-height: 0;
+    overflow-y: hidden;
     -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
-    overflow: hidden;
+}
+
+.mashape-doc .mashape-endpoint.active .mashape-endpoint-content {
+    max-height: 500px;
 }
