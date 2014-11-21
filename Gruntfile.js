@@ -42,6 +42,17 @@ module.exports = function (grunt) {
       }
     },
     uglify: {
+      options: {
+        beautify: {
+          ascii_only: true
+        },
+        preserveComments: 'some',
+        banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
+            '<%= grunt.template.today("yyyy/mm/dd") %> \n' +
+            '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
+            '* <%= grunt.template.today("yyyy") %> <%= pkg.author.name %> for <%= pkg.author.url %>\n' +
+            '*/\n\n'
+      },
       dist: {
         src: '<%= path.dist %>/embed.js',
         dest: '<%= path.dist %>/embed.js'

@@ -1,12 +1,12 @@
 {
-  "name": "mashape-embed-docs",
-  "version": "0.0.1",
-  "description": "",
+  "title": "Mashape Embedded Documentation",
+  "name": "mashape-embedded-documentation",
+  "version": "2.0.0",
   "private": true,
   "author": {
     "name": "Vazha Omanashvili",
-    "email": "rainum.ua@gmail.com",
-    "url": "http://rainum.me"
+    "email": "vazha@mashape.com",
+    "url": "https://www.mashape.com/"
   },
   "license": "MIT",
   "dependencies": {
