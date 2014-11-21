@@ -14,8 +14,11 @@
               <div class="mashape-parameter">
                 <span class="mashape-parameter-name"><%= groups[group][i].parameters.data[k].name %></span>
                 <span class="mashape-parameter-type"><%= groups[group][i].parameters.data[k].type %></span>
-                <span class="mashape-parameter-condition-<%= groups[group][i].parameters.data[k].condition.toLowerCase() %>"><%= groups[group][i].parameters.data[k].condition %></span>
+                <span class="mashape-parameter-condition-<%= groups[group][i].parameters.data[k].condition.toLowerCase() %>">(<%= groups[group][i].parameters.data[k].condition.toLowerCase() %>)</span>
                 <span class="mashape-parameter-description"><%= groups[group][i].parameters.data[k].description || "no description" %></span>
+                <% if (groups[group][i].parameters.data[k].value) { %>
+                  <span class="mashape-parameter-example">Example: <%= groups[group][i].parameters.data[k].value %></span>
+                <% } %>
               </div>
             <% } %>
           <% } %>
