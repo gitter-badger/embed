@@ -1,85 +1,107 @@
 module.exports = function (grunt) {
+  'use strict';
+
+  require('time-grunt')(grunt);
+
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    path: {
-      src: './src',
-      tmp: './.tmp',
-      components: './bower_components',
-      dist: './build'
-    },
+
     includes: {
       js: {
         options: {
           includeRegexp: /<!--\s*include\s+['"]?([^'"]+)['"]?\s*-->/
         },
-        files: [
-          {
-            cwd: '<%= path.src %>/js/',
-            src: '**/*.js',
-            dest: '<%= path.dist %>'
-          }
-        ]
+
+        files: [{
+          cwd: 'src',
+          src: '**/*.js',
+          dest: 'build'
+        }]
       }
     },
+
     htmlmin: {
       dist: {
         options: {
           removeComments: true,
           collapseWhitespace: true
         },
+
         files: {
-          '<%= path.tmp %>/templates/index.html': '<%= path.src %>/templates/index.html'
+          'build/template.html': 'src/template.html'
         }
       }
     },
+
     cssmin: {
       dist: {
         files: {
-          '<%= path.tmp %>/css/styles.css': '<%= path.src %>/css/styles.css'
+          'build/style.css': 'src/style.css'
         }
       }
     },
+
     uglify: {
       options: {
-        beautify: {
-          ascii_only: true
-        },
-        preserveComments: 'some',
-        banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-            '<%= grunt.template.today("yyyy/mm/dd") %> \n' +
-            '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-            '* <%= grunt.template.today("yyyy") %> <%= pkg.author.name %> for <%= pkg.author.url %>\n' +
-            '*/\n\n'
+        banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy/mm/dd") %> */\n'
       },
+
       dist: {
-        src: '<%= path.dist %>/embed.js',
-        dest: '<%= path.dist %>/embed.js'
+        files: {
+          'build/docs.js': 'build/docs.js'
+        }
       }
     },
-    clean: ['<%= path.dist %>', '<%= path.tmp %>'],
+
+    'gh-pages': {
+      options: {
+        base: 'build',
+        message: 'Auto-generated commit, see "master" branch for details.',
+        clone: '.gh-pages'
+      },
+
+      src: '**/*'
+    },
+
+    cloudflare: {
+      options: {
+        a: 'fpurge_ts',
+        tkn: process.env.CLOUDFLARE_API_KEY,
+        email: process.env.CLOUDFLARE_EMAIL,
+        z: 'embed.mashape.com'
+      }
+    },
+
+    clean: {
+      src: ['build/**/*', '!build/CNAME']
+    },
+
     watch: {
       src: {
-        files: '<%= path.src %>/**/*.*',
+        files: 'src/**/*.*',
         tasks: 'default'
       }
     }
   });
 
-  grunt.registerTask('default', [
-    'clean',
-    'cssmin',
-    'htmlmin',
-    'includes',
-    'watch',
-  ]);
-
-  grunt.registerTask('prod', [
+  grunt.registerTask('build', [
     'clean',
     'cssmin',
     'htmlmin',
     'includes',
     'uglify'
+  ]);
+
+  grunt.registerTask('default', [
+    'build',
+    'watch',
+  ]);
+
+  grunt.registerTask('deploy', [
+    'build',
+    'gh-pages',
+    //'cloudflare'
   ]);
 };

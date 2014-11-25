@@ -26,8 +26,8 @@
         'endpoints.group'
       ]
     },
-    template: '<!-- include "../../.tmp/templates/index.html" -->',
-    style: '<!-- include "../../.tmp/css/styles.css" -->'
+    template: '<!-- include "../build/template.html" -->',
+    style: '<!-- include "../build/style.css" -->'
   };
 
   /**

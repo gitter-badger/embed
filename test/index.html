@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Mashape Docs</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="src/css/styles.css">
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Mashape Docs Test</title>
 </head>
+
 <body>
-  <div id="mashape-container-589268064"></div>
+  <div id="mashape-docs-container"></div>
 
   <script type="text/javascript">
     (function (window) {
       if (!window._MashapeConfig) window._MashapeConfig = [];
+
       window._MashapeConfig.push({
-        selector: '#mashape-container-589268064',
+        selector: '#mashape-docs-container',
         user: 'imgur',
         api: 'imgur-9'
       });
+
       var script = document.createElement('script');
       script.type = 'text/javascript';
-      script.src = 'build/embed.js';
+      script.src = '../build/embed.js';
+      script.async = true;
       var entry = document.getElementsByTagName('script')[0];
       entry.parentNode.insertBefore(script, entry);
     }(window));

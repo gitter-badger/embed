@@ -1,4 +1,5 @@
-.idea
-.tmp
-build
+build/template.html
+build/style.css
+build/docs.js
 node_modules
+.gh-pages
