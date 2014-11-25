@@ -19,7 +19,7 @@ Use the following HTML snippet inside your `<body>`, be sure to replace `MASHAPE
 
     var script = document.createElement('script');
     script.type = 'text/javascript';
-    script.src = '//embed.mashape.com/docs.js';
+    script.src = '//mashape.github.io/embed/docs.js';
     script.async = true;
     var entry = document.getElementsByTagName('script')[0];
     entry.parentNode.insertBefore(script, entry);

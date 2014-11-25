@@ -75,7 +75,7 @@ module.exports = function (grunt) {
     },
 
     clean: {
-      src: ['build/**/*', '!build/CNAME']
+      src: ['build']
     },
 
     watch: {
