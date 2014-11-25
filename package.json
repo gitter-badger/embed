@@ -1,11 +1,11 @@
 {
   "private": true,
-  "title": "Mashape Embedded Documentation",
-  "name": "mashape-embedded-documentation",
+  "title": "Mashape API Documentation Embed Widget",
+  "name": "mashape-api-docs-embed",
   "version": "3.0.0",
   "author": {
-    "name": "Vazha Omanashvili",
-    "email": "vazha@mashape.com",
+    "name": "Mashape",
+    "email": "support@mashape.com",
     "url": "https://www.mashape.com/"
   },
   "license": "MIT",

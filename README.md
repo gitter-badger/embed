@@ -1,4 +1,4 @@
-# Mashape Embed Documentation
+# Mashape API Documentation Embed Widget
 
 ## Usage
 
@@ -25,23 +25,4 @@ Use the following HTML snippet inside your `<body>`, be sure to replace `MASHAPE
     entry.parentNode.insertBefore(script, entry);
   }(window));
 </script>
-```
-
-### Build project for develop
-
-```bash
-# Install dependencies
-$ npm install
-# Build embed script and watch file changes
-$ grunt
-```
-
-After that you can view [test/index.html](test/index.html) file in your browser.
-
-### Deploying Changes
-
-The static files are hosted using Github Pages + Cloudflare
-
-```bash
-$ grunt deploy
 ```
