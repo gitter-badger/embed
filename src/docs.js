@@ -37,17 +37,15 @@
    */
 
   function Doc(options) {
-    var _this = this;
+    this.options = this.merge(Doc.DEFAULTS, options);
+    this.container = this.setup();
 
-    _this.options = _this.merge(Doc.DEFAULTS, options);
-    _this.container = _this.setup();
-
-    _this.getData(function (data) {
-      _this.container.innerHTML = _this.tmpl(_this.options.template, {
-        groups: _this.groupEndpoints(data.endpoints.data)
+    this.getData(function (data) {
+      this.container.innerHTML = this.tmpl(this.options.template, {
+        groups: this.groupEndpoints(data.endpoints.data)
       });
-      _this.attachEvents();
-    });
+      this.attachEvents();
+    }.bind(this));
   }
 
   /**
@@ -90,7 +88,6 @@
    */
 
   Doc.prototype.getData = function (callback) {
-    var _this = this;
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function () {
@@ -99,10 +96,10 @@
           return callback(JSON.parse(xmlhttp.responseText));
         }
 
-        _this.container.innerHTML = 'There was an error loading the documentation.' +
+        this.container.innerHTML = 'There was an error loading the documentation.' +
             ' If you are the owner of this API, you may need to make this API public on Mashape.';
       }
-    };
+    }.bind(this);
 
     xmlhttp.open('GET',
             this.options.apiURL + 'accounts/' +
@@ -115,7 +112,7 @@
   };
 
   /**
-   * Group API endpoints by group name
+   * Group API endpoints by group id
    * @param {Array} endpoints - endpoints to group
    * @returns {Object}
    */
@@ -126,11 +123,21 @@
     for (var i = 0, current; i < endpoints.length; i++) {
       current = endpoints[i];
 
-      if (!(current.group.name in groups)) {
-        groups[current.group.name] = [];
+      if (typeof current.group === 'undefined') {
+        current.group = {
+          id: '__ungroupped__',
+          name: 'Ungroupped'
+        };
       }
 
-      groups[current.group.name].push(current);
+      if (!(current.group.id in groups)) {
+        groups[current.group.id] = {
+          name: current.group.name,
+          endpoints: []
+        };
+      }
+
+      groups[current.group.id].endpoints.push(current);
     }
 
     return groups;
@@ -145,6 +152,8 @@
    */
 
   Doc.prototype.tmpl = function tmpl(str, data) {
+    console.log(str, data);
+
     var fn = !/\W/.test(str) ?
         cache[str] = cache[str] ||
             tmpl(document.getElementById(str).innerHTML) :
