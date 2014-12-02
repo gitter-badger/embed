@@ -152,8 +152,6 @@
    */
 
   Doc.prototype.tmpl = function tmpl(str, data) {
-    console.log(str, data);
-
     var fn = !/\W/.test(str) ?
         cache[str] = cache[str] ||
             tmpl(document.getElementById(str).innerHTML) :
