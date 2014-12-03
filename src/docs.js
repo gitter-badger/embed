@@ -137,6 +137,22 @@
         };
       }
 
+      var endpointParameters = current.parameters;
+      var routeParameters = current.routeparameters;
+
+      current.routeparameters = undefined;
+
+      current.parameters = {
+        routeparameters: {
+          name: 'Route Parameters',
+          list: routeParameters
+        },
+        parameters: {
+          name: 'Parameters',
+          list: endpointParameters
+        }
+      };
+
       groups[current.group.id].endpoints.push(current);
     }
 
