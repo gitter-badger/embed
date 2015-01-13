@@ -50,7 +50,8 @@ module.exports = function (grunt) {
 
       dist: {
         files: {
-          'build/docs.js': 'build/docs.js'
+          'build/docs.js': 'build/docs.js',
+          'build/button.js': 'build/button.js'
         }
       }
     },
@@ -63,15 +64,6 @@ module.exports = function (grunt) {
       },
 
       src: '**/*'
-    },
-
-    cloudflare: {
-      options: {
-        a: 'fpurge_ts',
-        tkn: process.env.CLOUDFLARE_API_KEY,
-        email: process.env.CLOUDFLARE_EMAIL,
-        z: 'embed.mashape.com'
-      }
     },
 
     clean: {
@@ -102,6 +94,5 @@ module.exports = function (grunt) {
   grunt.registerTask('deploy', [
     'build',
     'gh-pages',
-    //'cloudflare'
   ]);
 };

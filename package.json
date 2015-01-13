@@ -1,8 +1,8 @@
 {
   "private": true,
-  "title": "Mashape API Documentation Embed Widget",
-  "name": "mashape-api-docs-embed",
-  "version": "3.0.2",
+  "title": "Mashape Embed Widgets",
+  "name": "mashape-embed",
+  "version": "4.0.0",
   "author": {
     "name": "Mashape",
     "email": "support@mashape.com",
@@ -11,7 +11,6 @@
   "license": "MIT",
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-cloudflare": "0.0.2",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-cssmin": "^0.10.0",
     "grunt-contrib-htmlmin": "^0.3.0",
