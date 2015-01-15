@@ -1,5 +1,7 @@
 # Mashape API Documentation Embed Widget
 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Mashape/embed?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## Usage
 
 Use the following HTML snippet inside your `<body>`, be sure to replace `MASHAPE-USERNAME` and `MASHAPE-API` with your Mashape username and API Name.
